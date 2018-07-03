@@ -1,3 +1,8 @@
+<p align="center">
+  Repositório para acompanhamento do curso de Laravel 5.5.
+  <a href="https://www.youtube.com/playlist?list=PLVSNL1PHDWvQ_qFQd5Kv3Uo4CB2vBZvLY">Assitir Curso</a>
+</p>
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
