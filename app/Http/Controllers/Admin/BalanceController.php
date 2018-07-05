@@ -24,10 +24,31 @@ class BalanceController extends Controller
 
     public function depositStore(MoneyValidationFormRequest $request, Balance $balance)
     {
-      // firstOrCrete([]) ==  retorna o valor da table, caso contrário  cria um registro com o valor predefinido
       $balance = Auth()->user()->balance()->firstOrCreate([]);
-      // $balance->deposit($request->vaalue);
+
       $response = $balance->deposit($request->value);
+
+      if ($response['success']) {
+        return redirect()
+                  ->route('admin.balance')
+                  ->with('success', $response['message']);
+      }
+
+      return redirect()
+                ->back()
+                ->with('error', $response['message']);
+    }
+
+    public function withdraw()
+    {
+      return view('admin.balance.withdraw');
+    }
+
+    public function withdrawStore(MoneyValidationFormRequest $request, Balance $balance)
+    {
+      $balance = Auth()->user()->balance()->firstOrCreate([]);
+
+      $response = $balance->withdraw($request->value);
 
       if ($response['success']) {
         return redirect()
