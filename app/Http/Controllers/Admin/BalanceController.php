@@ -26,9 +26,18 @@ class BalanceController extends Controller
     {
       // firstOrCrete([]) ==  retorna o valor da table, caso contrário  cria um registro com o valor predefinido
       $balance = Auth()->user()->balance()->firstOrCreate([]);
-      // $balance->deposit($request->value);
-      dd($balance->deposit($request->value));
+      // $balance->deposit($request->vaalue);
+      $response = $balance->deposit($request->value);
 
+      if ($response['success']) {
+        return redirect()
+                  ->route('admin.balance')
+                  ->with('success', $response['message']);
+      }
+
+      return redirect()
+                ->back()
+                ->with('error', $response['message']);
     }
 
 }

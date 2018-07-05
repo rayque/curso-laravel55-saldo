@@ -18,13 +18,7 @@
   </div>
   <div class="box-body">
 
-    @if($errors->any())
-    <div class="alert alert-danger">
-      @foreach( $errors->all() as $error)
-      <p> {{ $error }} </p>
-      @endforeach
-    </div>
-    @endif
+    @include('admin.includes.alerts')
 
     <form class="" action="{{ route('deposit.store') }}" method="POST">
       {{ csrf_field() }}
