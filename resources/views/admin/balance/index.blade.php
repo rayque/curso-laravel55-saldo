@@ -22,6 +22,10 @@
       <i class="fa fa-cart-arrow-down fa-fw"></i>
       Sacar
     </a>
+    <a href="{{ route('balance.transfer') }}" class="btn btn-info">
+      <i class="fa fa-exchange fa-fw"></i>
+      Trasnferir
+    </a>
     @endif
   </div>
   <div class="box-body">
